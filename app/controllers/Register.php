@@ -17,8 +17,6 @@ class Register extends Controller {
 
         if($_POST) {
             // form validation
-            // $validation = true;
-
             $validation->check($_POST, [
                 'username' => [
                     'display' => "Username",
