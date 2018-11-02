@@ -15,8 +15,6 @@ class Router {
      * 
      */
     public static function route($url) {
-        // controller
-        // dnd($url);
         // set controller to the first item of the url if none given, set default controller
         $controller = (isset($url[0]) && $url[0] != '') ? ucwords($url[0]): DEFAULT_CONTROLLER;
         $controller_name = $controller;
@@ -25,7 +23,6 @@ class Router {
      
         // action 
         $action = (isset($url[0]) && $url[0] != '') ? $url[0]: 'index';
-        // $action_name = $controller;
         array_shift($url);
 
 
@@ -43,8 +40,6 @@ class Router {
 
     public static function redirect($location) {
         $location = implode(DS,explode('/', $location));
-        // dnd($location);
-        // dnd($location);
         if(!headers_sent()) {
             header('Location: '.PROOT.$location);
             exit();

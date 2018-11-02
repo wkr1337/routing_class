@@ -33,6 +33,5 @@ if(!isset($_SESSION['logged_in'])) $_SESSION['logged_in'] = false;
 // make array from url and trim off the / if no url given set url to array.
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
 //  Route the request 
-dnd($url);
 
 Router::route($url);

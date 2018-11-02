@@ -15,9 +15,6 @@ class Posts extends Controller {
 
     public function store($params=[]) {
         $validation = new Validate();
-        // die();
-        // $postTitle = Input::sanitize(trim($_POST['postTitle']));
-        // $message = Input::sanitize(trim($_POST['message']));
         if($_POST) {
             $validation->check($_POST, [
                 'postTitle' => [
@@ -31,12 +28,9 @@ class Posts extends Controller {
                 ]
                 ]);
         }
-        // dnd($validation->passed());
         if($validation->passed()  && $_SESSION['logged_in']) {
-            // dnd($validation->passed());
-            // dnd($_SESSION['userID']);
+
             if(!empty($params)) {
-                // dnd($params);
                 // check if logged in and check if user id = postUserID
                 $findFirstResult = $this->_db->findFirst('posts', [
                     'conditions' => 'id = ?',
@@ -68,29 +62,20 @@ class Posts extends Controller {
             
             Router::redirect('posts/show');
         }
-        // dnd($validation->displayErrors());
         $this->view->setViewData($validation->displayErrors());
-        // dnd($this->view->getViewData());
         $this->view->render('posts/create');
 
-        // dnd("NOT SO SUCCESSFULL");
     }
 
     public function show() {
-        // $sqlQuery = "SELECT * FROM posts ORDER BY postDate desc";
-        // self::$showPosts = mysqli_query($db, $sqlQuery);
-        // $this->$showPosts = $this->_db->find('posts');
-        // dnd($this->$showPosts);
+   
         $this->view->setViewData($this->_db->find('posts'));
-        // dnd($this->view->getViewData());
         $this->view->setLayout= 'default';
         $this->view->render('posts/showPosts');
 
     }
 
     public function create() {
-        // $fields = ['user_name' => 'hallo', 'email' => 'emailAdres@sssss'];
-
         $this->view->setLayout('home');
         $this->view->render('posts/create');
 
@@ -100,14 +85,11 @@ class Posts extends Controller {
         if (isset($_POST['editPost'])) {
             $this->edit = true;
             $postID = $_POST["postNumber"];
-            // dnd($postID);
             $results = $this->_db->findFirst('posts', [
                 'conditions' => 'id = ?',
                 'bind' => [$postID]]);
-            // dnd($results);
             $this->view->setviewData($results);
             $this->view->render('posts/create');
-            // dnd($results);
         }
 
 

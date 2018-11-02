@@ -7,7 +7,7 @@ class="close" title="Close Modal">&times;</span>
   <!-- Modal Content -->
   <form class="modal-content animate" action="<?= PROOT ?>register/login" method="post">
     <div class="login-image-container">
-      <img src="./public/img/man.png" alt="Avatar" class="avatar">
+      <img src="<?= PROOT ?>public/img/man.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container-login">

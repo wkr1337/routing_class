@@ -1,16 +1,4 @@
 
-<?php
-
-// if (isset($_POST['editPost'])) {
-//     $postID = $_POST["postNumber"];
-//     $sqlQuery = "SELECT title, postText FROM posts WHERE postID = $postID";
-//     $results = mysqli_query(Controller::config('dbConnect'), $sqlQuery);
-
-//     $user = mysqli_fetch_assoc($results);
-//     $postTitle = $user['title'];
-//     $postText = $user['postText'];
-// }
-?>
 <div class="postWrapper">
     <form action="<?=PROOT?>posts/store/<?php if(isset($_POST['postNumber'])) echo $_POST['postNumber'];?>" method="post">
     <!-- CHECK IF NOT ARRAYY -->

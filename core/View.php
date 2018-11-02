@@ -5,13 +5,8 @@ class View {
     public $displayErrors;
 
     public function render($viewName) {
-        // dnd(->_db->find('posts'));
-
         $viewArray = explode('/', $viewName);
         $viewString = implode(DS, $viewArray);
-        // dnd($viewArray);
-        // dnd($viewString);
-        // dnd(DS);
         if (file_exists(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php')) {
             include(ROOT . DS . 'app' . DS . 'views' . DS . $viewString . '.php');
             include(ROOT . DS . 'app' . DS . 'views' . DS . 'layouts' . DS . $this->_layout . '.php');

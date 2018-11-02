@@ -23,12 +23,11 @@
 <div class="bg-danger"><?=$this->getViewError() ?></div>
 
 
+<?php include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'inc' . DS . 'navbar.php'); ?>
+<?php include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'register' . DS . 'loginModal.php'); ?>
+<?php include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'register' . DS . 'registerModal.php'); ?>
 <?= $this->content('body'); ?>
-<?= include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'inc' . DS . 'navbar.php'); ?>
-<?= include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'register' . DS . 'loginModal.php'); ?>
-<?= include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'register' . DS . 'registerModal.php'); ?>
 
-
-<?= include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'inc' . DS . 'footer.php'); ?>
+<?php include_once(ROOT . DS . 'app' . DS . 'views' . DS . 'inc' . DS . 'footer.php'); ?>
 </body>
 </html>

@@ -21,20 +21,16 @@ class DB {
     }
 
     public function query($sql, $params = []) {
-        echo ($sql);
         $this->_error = false;
         // prepare sql statement
         if ($this->_query = $this->_pdo->prepare($sql)) {
             $x = 1;
-            // dnd($params);
             if (count($params)) {
                 foreach($params as $param) {
-                    echo $param;
                     $this->_query->bindValue($x, $param);
                     $x++;
                 }
             }
-            // dnd($this->_query);
             // if query is successfull set up all variables
             if($this->_query->execute()) {
                 $this->_result = $this->_query->fetchAll(PDO::FETCH_OBJ);
@@ -72,7 +68,6 @@ class DB {
             }
         }
         // bind
-        // dnd($params);
         if (array_key_exists('bind', $params)) {
             $bind = $params['bind'];
         }
@@ -85,8 +80,6 @@ class DB {
             $limit = ' LIMIT '. $params['limit'];
         }
         $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
-        // echo $bind;
-        // dnd($sql);
         
         if ($this->query($sql, $bind)) {
             if (!count($this->_result)) return false;
@@ -133,7 +126,6 @@ class DB {
         $valueString = rtrim($valueString, ',');
         $fieldString = rtrim($fieldString, ', ');
         $sql = "INSERT INTO {$table} ({$fieldString}) VALUES ({$valueString})";
-        // dnd($sql);
         if(!$this->query($sql, $values)->error()) {
             return true;
         }
@@ -159,7 +151,6 @@ class DB {
         $fieldString = trim($fieldString); // remove the white space in front of the string
         $fieldString = rtrim($fieldString, ',');
         $sql = "UPDATE {$table} SET {$fieldString} WHERE id = {$id}";
-        // dnd($sql);
         if(!$this->query($sql, $values)->error()) {
             return true;
         }

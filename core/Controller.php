@@ -5,7 +5,6 @@ class Controller {
     public $view;
 
     public function __construct($controller, $action) {
-        // parent::__construct();
         $this->_db = DB::getInstance();
 
         $this->_controller = $controller;

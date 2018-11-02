@@ -1,6 +1,5 @@
 <nav class="navBar" id="navBarId">
         <ul><?php $locationArray = explode('/', htmlspecialchars($_SERVER['PHP_SELF']));
-        // dnd($locationArray);
         if(end($locationArray) == 'index.php'): ?>
             <li class="li-hideable"><a href="javascript:scrollToDiv('.header-container')">Home</a></li>
             <li class="li-hideable"><a href="javascript:scrollToDiv('.wrapper')">Projects</a></li>

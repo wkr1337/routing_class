@@ -34,8 +34,6 @@ class Validate {
 
                         case 'unique':
                             $check = $this->_db->query("SELECT {$item} FROM {$rule_value} WHERE {$item} =?", [$value]);
-                            // dnd($check);
-                            // dnd($check->count());
                             if($check->count()) {
                                 $this->addError(["{$display} already exists. Please choose another {$display}", $item]);
                             }
@@ -48,7 +46,6 @@ class Validate {
                             
 
                     }
-                    // dnd($rule);
                 }
             }
         }
@@ -78,7 +75,6 @@ class Validate {
     }
 
     public function displayErrors() {
-        // dnd($this->_error);
         $html = '<ul class="bg-danger">';
         foreach($this->_errors as $error) {
             if(is_array($error)) {
